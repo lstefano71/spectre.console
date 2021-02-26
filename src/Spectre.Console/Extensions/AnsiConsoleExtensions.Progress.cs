@@ -36,5 +36,20 @@ namespace Spectre.Console
 
             return new Status(console);
         }
+
+        /// <summary>
+        /// Creates a new <see cref="UpdatePanel"/> instance for the console.
+        /// </summary>
+        /// <param name="console">The console.</param>
+        /// <returns>A <see cref="UpdatePanel"/> instance.</returns>
+        public static UpdatePanel UpdatePanel(this IAnsiConsole console)
+        {
+            if (console is null)
+            {
+                throw new ArgumentNullException(nameof(console));
+            }
+
+            return new UpdatePanel(console);
+        }
     }
 }
